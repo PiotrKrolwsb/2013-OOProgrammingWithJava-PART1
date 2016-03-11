@@ -1,21 +1,26 @@
 
 public class NumberStatistics 
 {
-    private int amountOfNumber;
+    private int amountOfNumbers;
     private int sum;
     
     public NumberStatistics() 
     {
-        amountOfNumber = 0;
+        amountOfNumbers = 0;
+        this.sum = 0;
     }
     public void addNumber(int number) 
     {
-        amountOfNumber++;
-        sum+=number; 
+        if ( number == -1) {}
+        else 
+        {
+            amountOfNumbers++;
+            sum+=number;
+        } 
     }
     public int amountOfNumbers() 
     {
-       return amountOfNumber;
+       return amountOfNumbers;
     }
     public int sum()
     {
@@ -23,8 +28,9 @@ public class NumberStatistics
     }
     public double average()
     {
-        if (amountOfNumber == 0)
-            return (double)sum/(amountOfNumber +1);
-        return (double) sum/amountOfNumber;
+        if (amountOfNumbers == 0)
+            return (double)sum/(amountOfNumbers +1);
+        return (double) sum/amountOfNumbers;
     }
+   
 }
