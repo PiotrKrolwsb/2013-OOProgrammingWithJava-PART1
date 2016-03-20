@@ -3,16 +3,28 @@ public class Clock {
     private BoundedCounter minutes;
     private BoundedCounter seconds;
    
-    public Clock(int hoursAtBeginning, int minutesAtBeginning, int secondsAtBeginning) {
-        // the counters that represent hours, minutes and seconds are created and set to have the correct initial values
-    }
-    
-    public void tick() {
+    public Clock(int hoursAtBeginning, int minutesAtBeginning, int secondsAtBeginning) 
+    {
+        // the counters that represent hours, minutes and seconds are created and set 
+        // to have the correct initial values
+        seconds = new BoundedCounter(59);
+        minutes = new BoundedCounter(59);
+        hours = new BoundedCounter(23);
+        seconds.setValue(secondsAtBeginning);
+        minutes.setValue(minutesAtBeginning);
+        hours.setValue(hoursAtBeginning);
+    }    
+    public void tick() 
+    {
         // Clock advances by one second
-    }
-    
-    public String toString() {
+             seconds.next();
+                if ( seconds.getValue() == 0) minutes.next();
+                    if ( seconds.getValue() == 0 && minutes.getValue() == 0) 
+                        hours.next();
+    }    
+    public String toString() 
+    {
         // returns the string representation
-        return "";
+        return hours + ":" + minutes + ":" + seconds;
     }
 }
