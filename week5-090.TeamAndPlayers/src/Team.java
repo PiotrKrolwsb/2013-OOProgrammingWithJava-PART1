@@ -37,4 +37,13 @@ public class Team
     {
         return player.size();
     }
+    public int goals()
+    {
+        int numberOfGoals = 0;
+        for(Player p : player)
+        {
+            numberOfGoals += p.goals();
+        }
+        return numberOfGoals;
+   }
 }
